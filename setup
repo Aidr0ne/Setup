@@ -1,0 +1,31 @@
+#! /usr/bin/python
+
+import os
+
+version = 0.1
+
+origin = "https://github.com/Shahrayar123/Python-Projects/"
+name = "Python-Projects"
+
+print("What kind of project do you wish to setup")
+print("1. 2d grid project")
+
+i = input(": ")
+if i == 1:
+    get = "AirCanvas"
+
+print("What name would you like the engine to have")
+print("This will affect how you import it eg import thing.show")
+print("Leave blank for the default")
+
+i = input(": ")
+if i == "": nm = "engine"
+else: nm = i
+
+os.system(f"git clone {origin}")
+os.system(f"mv Python-Projects/AirCanvas {nm}")
+os.system(f"rm -rf {name}")
+
+to_add = f"name={nm}"
+
+os.system(f"echo {to_add} >> {nm}/config.py")
