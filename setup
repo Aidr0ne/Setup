@@ -2,17 +2,19 @@
 
 import os
 
-version = 0.1
+version = 0.11
 
-origin = "https://github.com/Shahrayar123/Python-Projects/"
-name = "Python-Projects"
+origin = "https://github.com/Aidr0ne/engine"
+name = "engine"
+
+tools_origin = "https://github.com/Aidr0ne/tools"
 
 print("What kind of project do you wish to setup")
-print("1. 2d grid project")
+print("1. General Project")
 
-i = input(": ")
+i = int(input(": "))
 if i == 1:
-    get = "AirCanvas"
+    get = "General"
 
 print("What name would you like the engine to have")
 print("This will affect how you import it eg import thing.show")
@@ -22,9 +24,18 @@ i = input(": ")
 if i == "": nm = "engine"
 else: nm = i
 
+build_tool = input("Would you like the build tool (y/n): ")
+
 os.system(f"git clone {origin}")
-os.system(f"mv Python-Projects/AirCanvas {nm}")
+os.system(f"mv {name}/{get} {nm}")
 os.system(f"rm -rf {name}")
+
+os.system(f"git clone {tools_origin}")
+
+if build_tool == "y":
+    os.system(f"mv tools/build.py build.py")
+
+os.system(f"rm -rf tools")
 
 to_add = f"name={nm}"
 
