@@ -2,12 +2,16 @@
 
 import os
 
-version = 0.11
+version = 0.12int
 
 origin = "https://github.com/Aidr0ne/engine"
 name = "engine"
 
 tools_origin = "https://github.com/Aidr0ne/tools"
+
+print("------------")
+print(f"Setup V:{version}")
+print("------------")
 
 print("What kind of project do you wish to setup")
 print("1. General Project")
@@ -25,6 +29,7 @@ if i == "": nm = "engine"
 else: nm = i
 
 build_tool = input("Would you like the build tool (y/n): ")
+editor = input("Would you like the editor tool (y/n): ")
 
 os.system(f"git clone {origin}")
 os.system(f"mv {name}/{get} {nm}")
@@ -34,6 +39,9 @@ os.system(f"git clone {tools_origin}")
 
 if build_tool == "y":
     os.system(f"mv tools/build.py build.py")
+
+if editor == "y":
+    os.system(f"mv tools/editor.py editor.py")
 
 os.system(f"rm -rf tools")
 
