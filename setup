@@ -1,6 +1,7 @@
 #! /usr/bin/python
 
 import os
+import sys
 
 version = 0.12
 
@@ -12,6 +13,17 @@ tools_origin = "https://github.com/Aidr0ne/tools"
 print("------------")
 print(f"Setup V:{version}")
 print("------------")
+
+print("In order to use the Engine you must agree to the License (GNU GPLv3)")
+print("Key summary:")
+print("You may Modify, Distribute and use this software for commercial and private use")
+print("A copy of this license must be included with any distribution of this software")
+print("Your software must be open source (Eg: publish the full source code on github gitlab etc)")
+print("The source code must be available if distributed in any form")
+i = input("Do you Agree (y/n): ")
+if i == "n":
+    print("Bye then...")
+    sys.exit(0)
 
 print("What kind of project do you wish to setup")
 print("1. General Project")
@@ -33,6 +45,7 @@ editor = input("Would you like the editor tool (y/n): ")
 
 os.system(f"git clone {origin}")
 os.system(f"mv {name}/{get} {nm}")
+os.system(f"mv {name}/LICENSE {nm}/LICENSE")
 os.system(f"rm -rf {name}")
 
 os.system(f"git clone {tools_origin}")
